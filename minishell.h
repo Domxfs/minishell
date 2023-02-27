@@ -6,7 +6,7 @@
 /*   By: domy <domy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 18:30:17 by rpoggi            #+#    #+#             */
-/*   Updated: 2023/02/21 15:49:02 by domy             ###   ########.fr       */
+/*   Updated: 2023/02/23 17:46:54 by domy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ typedef struct s_data
     char	*path;
     char	**mat;
     int		*ascii;
+	char   *input;
+	int end;
 	int		ascii_s;
     bool	signalset;
 }				t_data;

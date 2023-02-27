@@ -6,7 +6,7 @@
 /*   By: domy <domy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 21:25:00 by rpoggi            #+#    #+#             */
-/*   Updated: 2023/02/21 15:49:16 by domy             ###   ########.fr       */
+/*   Updated: 2023/02/23 17:39:55 by domy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,18 @@ void    init_prompt(void)
 
 void    display_prompt(t_data *data)
 {
-    char *input;
-    char    **tmp;
-    int i;
-	int x;
-	int ascii;
+    char	*input;
+    int		i;
+	int		x;
+	int		ascii;
     
     i = 0;
 	x = 0;
     init_prompt();
     input = readline("$ ");
 	add_history(input);
-	splitting(data, input);
+	// splitting(data, input);
+	data->mat = ft_split(input, '|');
     // check_heredocs(data);
 	while (data->mat[i])
 	{
@@ -68,3 +68,16 @@ void    display_prompt(t_data *data)
 // 	}
 // }
 
+void splitting2(t_data *data, char *input)
+{
+	int pipefd[2];
+	
+	pipe(pipefd);
+}
+
+
+
+void parser(t_data *data)
+{
+	
+}

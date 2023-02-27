@@ -6,7 +6,7 @@
 /*   By: domy <domy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 14:42:52 by rpoggi            #+#    #+#             */
-/*   Updated: 2023/02/21 15:35:15 by domy             ###   ########.fr       */
+/*   Updated: 2023/02/27 13:06:34 by domy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,28 @@ int main(int ac, char **av, char **envp)
 
 	initstruct(&data);
 	// ignore_signal(&data);
-    while (1)
-        display_prompt(&data);
+	display_prompt(&data);
+	firtpars(data, envp);
+		
     return 0;
+}
+
+
+void firtpars(t_data data, char **envp)
+{
+	 while (data.end != 0)
+	{
+		data.input = readline("$ ");
+		if (data.input == NULL)
+		{
+			//scrivi errore
+			break;
+		}
+		if (ft_strlen(data.input) > 0)
+			add_history(data.input);
+		if (ft_strlen(data.input) == 0)
+			continue;
+		parsecomm(&data, envp);
+		free(data.input);
+	}
 }
